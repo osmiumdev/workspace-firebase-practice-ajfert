@@ -1,15 +1,16 @@
 /* Change the configuration */
 
-var firebaseConfig = {
-  apiKey: 'AIzaSyAzcwgZuLA7dO9g4sQhXQVTUgCo0M8m2qM',
-  authDomain: 'grocerylist-91956.firebaseapp.com',
-  databaseURL: 'https://grocerylist-91956.firebaseio.com',
-  projectId: 'grocerylist-91956',
-  storageBucket: 'grocerylist-91956.appspot.com',
-  messagingSenderId: '813812426276',
-  appId: '1:813812426276:web:93e5897af12892ff78dab1',
-  measurementId: 'G-VZ83BTR72T',
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBmAO-kCGYr-UXiVhXQcfQiHHdpZpZ6Yak",
+  authDomain: "hotel-b43e3.firebaseapp.com",
+  projectId: "hotel-b43e3",
+  storageBucket: "hotel-b43e3.appspot.com",
+  messagingSenderId: "123884470923",
+  appId: "1:123884470923:web:8315686b30d92436ad4a8e"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
@@ -17,12 +18,19 @@ firebase.initializeApp(firebaseConfig);
 $("input[type='button']").click(function (e) {
   //get the value of form
 
+  var inputData = $('form').serializeArray();
+  console.log(inputData)
+
   /* save the data to database */
+  var doc = firebase.firestore().collection('hotel').add(
+
+    { inputData[0][0] : inputData[0][1] }
+
+  );
 
   /* clear the entry */
   $('form')[0].reset();
 });
-
 
 /* array example
 const array1 = ['a', 'b', 'c'];
